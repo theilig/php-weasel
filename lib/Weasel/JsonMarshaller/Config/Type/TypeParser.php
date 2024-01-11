@@ -11,7 +11,7 @@ class TypeParser
     {
         // Assume type strings are well formed: look for the last [ to see if it's an array or map.
         // Note that this might be an array of arrays, and we're after the outermost type, so we're after the last [!
-        $pos = strrpos($type, '[');
+        $pos = strrpos($type ?? '', '[');
         if ($pos === false) {
             // If there wasn't a [ then this must be a scalar or object
             if ($type == "bool") {
